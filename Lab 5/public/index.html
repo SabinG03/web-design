@@ -1,0 +1,117 @@
+<!--
+    Assigmnet 5
+    Sabin Ghet
+    22499834
+
+    Windows - Chrome
+    
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MongoDB Database Tables</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom CSS */
+    body {
+      padding: 20px;
+    }
+    .delete-btn {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Products Table -->
+  <h2>Products</h2>
+  <table id="productTable" class="table"></table>
+
+  <!-- Customers Table -->
+  <h2>Customers</h2>
+  <table id="customerTable" class="table"></table>
+
+  <!-- Orders Table -->
+  <h2>Orders</h2>
+  <table id="orderTable" class="table"></table>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Function to fetch and display data in a table
+  async function fetchData(url, targetElement) {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      const keys = Object.keys(data[0]);
+      const table = document.getElementById(targetElement);
+      const thead = table.createTHead();
+      const row = thead.insertRow();
+      // Create table headers
+      keys.forEach(key => {
+        // Exclude the "items" field from the table headers
+        if (key !== 'items') {
+          const th = document.createElement('th');
+          th.textContent = key.charAt(0).toUpperCase() + key.slice(1); // Capitalize the first letter
+          row.appendChild(th);
+        }
+      });
+      // Add a column for delete buttons
+      const deleteHeader = document.createElement('th');
+      deleteHeader.textContent = 'Delete';
+      row.appendChild(deleteHeader);
+      const tbody = table.createTBody();
+      // Create table rows
+      data.forEach(item => {
+        const row = tbody.insertRow();
+        keys.forEach(key => {
+          // Exclude the "items" field from the table rows
+          if (key !== 'items') {
+            const cell = row.insertCell();
+            cell.textContent = item[key];
+          }
+        });
+        // Add delete button to each row
+        const deleteCell = row.insertCell();
+        const deleteBtn = document.createElement('button');
+        deleteBtn.className = 'btn btn-danger delete-btn';
+        deleteBtn.textContent = 'Delete';
+        deleteBtn.addEventListener('click', async () => {
+          try {
+            // Send DELETE request to delete the item
+            const deleteResponse = await fetch(`${url}/${item._id}`, {
+              method: 'DELETE'
+            });
+            if (deleteResponse.ok) {
+              // Remove the row from the table on successful deletion
+              table.deleteRow(row.rowIndex);
+            }
+          } catch (error) {
+            console.error('Error deleting item:', error);
+          }
+        });
+        deleteCell.appendChild(deleteBtn);
+      });
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  }
+
+  // Fetch data for products, customers, and orders tables when the window loads
+  window.onload = function() {
+    fetchData('/api/products', 'productTable');
+    fetchData('/api/customers', 'customerTable');
+    // Exclude items from the order table
+    fetchData('/api/orders', 'orderTable');
+  };
+</script>
+
+</body>
+</html>

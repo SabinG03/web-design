@@ -1,0 +1,170 @@
+/* 
+    Assigmnet 2 - Simon Says Game
+    Sabin Ghet
+    22499834
+
+    Windows - Chrome
+    
+*/
+
+.frame {
+  background-image: linear-gradient(135deg, rgba(73, 125, 115, 1.0), rgba(221, 177, 174, 1.0));
+  border: 5px solid black ;
+  width: 700px;
+  height: 700px;
+  left: 25%;
+  position: relative;
+  z-index: 1;
+  font-family: 'Orbitron';
+}
+
+/*
+    Buton container
+    -circles inherit these specs
+*/
+.button{  
+  border: 10px solid black;
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+  z-index: 2;
+  position: absolute;
+}
+
+/*
+    Body
+    -buttons inherit specs and postion
+    the other buttons.
+*/
+
+.game-body{
+  background-image: linear-gradient(rgb(0, 0, 0),rgb(5, 5, 5));
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border-style: solid;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/*
+    Buton active
+    -buttons gain this class when the computer flashes
+    a radom colour or when the game ends.
+*/
+
+.button.active {
+  background-image: linear-gradient(rgb(94, 89, 89),rgb(255, 255, 255));
+}
+
+/*
+    Butons
+*/
+
+
+.red-button{
+  background-image: linear-gradient(rgb(251, 19, 0),rgb(205, 10, 5));
+  transform: translate(-50%, -50%);
+  cursor:grab;
+  top: 0%;
+  left: 100%;
+}
+
+.green-button{
+  background-image: linear-gradient(rgb(126, 209, 53),rgb(92, 182, 9));
+  transform: translate(-50%,-50%);
+  cursor:grab;
+  top: 0%;
+  left: 0%;
+}
+
+
+.yellow-button{
+  background-image: linear-gradient(rgb(253, 242, 149),rgb(241, 159, 17));
+  transform: translate(-50%, -50%);
+  cursor:grab;
+  top: 100%;
+  left: 0%;
+}
+
+.blue-button{
+  background-image: linear-gradient(rgb(62, 145, 242),rgb(30, 96, 207));
+  transform: translate(-50%, -50%);
+  cursor:grab;
+  top: 100%;
+  left: 100%;
+}
+
+/*
+    Start button, high score, Current score.
+*/
+
+.start-button {
+  background-color: rgb(200, 200, 200);
+  padding-top: 10px;
+  height: 60px;
+  width: 150px;
+  position: absolute;
+  border-radius: 10%;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 35px;
+  text-align: center;  
+  cursor:grab;
+}
+
+.high-score {
+  background-color: rgb(200, 200, 200);
+  padding-top: 5px;
+  height: 55px;
+  width: 87px;
+  position: absolute;
+  border-radius: 10%;
+  z-index: 2;
+  top: 50%;
+  left: 18%;
+  transform: translate(-50%, -50%);
+  font-size: 35px;
+  text-align: center;
+}
+
+.current-score {
+  background-color: rgb(200, 200, 200);
+  padding-top: 5px;
+  height: 55px;
+  width: 87px;
+  position: absolute;
+  border-radius: 10%;
+  z-index: 2;
+  top: 50%;
+  left: 82%;
+  transform: translate(-50%, -50%);
+  font-size: 35px;
+  text-align: center;
+}
+
+/*
+    Game Status class and Game status On
+    -Once the game begins it gains the game status
+    on feature and gets rid of it once the user loses
+*/
+
+.game-status{
+  background-color: rgb(255, 0, 0);
+  height: 20px;
+  width: 20px;
+  position: absolute;
+  border-radius: 50%;
+  z-index: 2;
+  top: 68%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.game-status-on{
+  background-color: green;
+}

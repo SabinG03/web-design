@@ -1,0 +1,176 @@
+ASSIGNMENT 5 DATA DUMP JSON FILE
+
+--------------------------------
+	CUSTOMER
+--------------------------------
+[
+  {
+    "title": "Mr",
+    "name": "John",
+    "surname": "Doe",
+    "phone": 1234567890,
+    "email": "john.doe@example.com",
+    "address1": "123 Main Street",
+    "address2": "Apt 101",
+    "address3": "City",
+    "eircode": "EIR123"
+  },
+  {
+    "title": "Ms",
+    "name": "Alice",
+    "surname": "Smith",
+    "phone": 9876543210,
+    "email": "alice.smith@example.com",
+    "address1": "456 Elm Street",
+    "address2": "Suite 202",
+    "address3": "Town",
+    "eircode": "EIR456"
+  },
+  {
+    "title": "Dr",
+    "name": "David",
+    "surname": "Brown",
+    "phone": 2345678901,
+    "email": "david.brown@example.com",
+    "address1": "789 Oak Street",
+    "address2": "Unit 303",
+    "address3": "Village",
+    "eircode": "EIR789"
+  },
+  {
+    "title": "",
+    "name": "Emily",
+    "surname": "Johnson",
+    "phone": 8765432109,
+    "email": "emily.johnson@example.com",
+    "address1": "321 Pine Street",
+    "address2": "Apt 404",
+    "address3": "Hamlet",
+    "eircode": "EIR321"
+  },
+  {
+    "title": "Mr",
+    "name": "Michael",
+    "surname": "Davis",
+    "phone": 3456789012,
+    "email": "michael.davis@example.com",
+    "address1": "567 Cedar Street",
+    "address2": "Suite 505",
+    "address3": "Borough",
+    "eircode": "EIR567"
+  },
+  {
+    "title": "Mrs",
+    "name": "Emma",
+    "surname": "Wilson",
+    "phone": 7654321098,
+    "email": "emma.wilson@example.com",
+    "address1": "901 Maple Street",
+    "address2": "Unit 606",
+    "address3": "County",
+    "eircode": "EIR901"
+  },
+  {
+    "title": "",
+    "name": "James",
+    "surname": "Martinez",
+    "phone": 4567890123,
+    "email": "james.martinez@example.com",
+    "address1": "234 Walnut Street",
+    "address2": "Apt 707",
+    "address3": "Parish",
+    "eircode": "EIR234"
+  },
+  {
+    "title": "Dr",
+    "name": "Olivia",
+    "surname": "Garcia",
+    "phone": 6543210987,
+    "email": "olivia.garcia@example.com",
+    "address1": "789 Cherry Street",
+    "address2": "Suite 808",
+    "address3": "Province",
+    "eircode": "EIR789"
+  },
+  {
+    "title": "",
+    "name": "Noah",
+    "surname": "Rodriguez",
+    "phone": 5678901234,
+    "email": "noah.rodriguez@example.com",
+    "address1": "890 Lemon Street",
+    "address2": "Unit 909",
+    "address3": "Territory",
+    "eircode": "EIR890"
+  },
+  {
+    "title": "Ms",
+    "name": "Sophia",
+    "surname": "Lopez",
+    "phone": 5432109876,
+    "email": "sophia.lopez@example.com",
+    "address1": "123 Olive Street",
+    "address2": "Apt 1010",
+    "address3": "District",
+    "eircode": "EIR123"
+  }
+]
+
+
+
+--------------------------------
+	   PRODUCTS
+--------------------------------
+
+[
+  {
+    "manufacture": "Samsung",
+    "model": "Galaxy S21 Ultra",
+    "price": 1399
+  },
+  {
+    "manufacture": "Samsung",
+    "model": "Galaxy Note 20 Ultra",
+    "price": 1299
+  },
+  {
+    "manufacture": "Samsung",
+    "model": "Galaxy Z Fold 2",
+    "price": 1999
+  },
+  {
+    "manufacture": "Samsung",
+    "model": "Galaxy S20 FE",
+    "price": 699
+  },
+  {
+    "manufacture": "Samsung",
+    "model": "Galaxy A52",
+    "price": 499
+  },
+  {
+    "manufacture": "Apple",
+    "model": "iPhone 13 Pro Max",
+    "price": 1099
+  },
+  {
+    "manufacture": "Apple",
+    "model": "iPhone 13",
+    "price": 799
+  },
+  {
+    "manufacture": "Apple",
+    "model": "iPhone 12 Pro Max",
+    "price": 1099
+  },
+  {
+    "manufacture": "Apple",
+    "model": "iPhone SE (2020)",
+    "price": 399
+  },
+  {
+    "manufacture": "Apple",
+    "model": "iPhone 11",
+    "price": 699
+  }
+]

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Add Item</title>
+<!-- Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  /* Custom CSS */
+  body {
+    padding: 20px;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Add Item</h2>
+  <form id="addItemForm">
+    <div class="form-group">
+      <label>Select Item Type:</label>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="itemType" id="productRadio" value="product" checked>
+        <label class="form-check-label" for="productRadio">
+          Product
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="itemType" id="customerRadio" value="customer">
+        <label class="form-check-label" for="customerRadio">
+          Customer
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="itemType" id="orderRadio" value="order">
+        <label class="form-check-label" for="orderRadio">
+          Order
+        </label>
+      </div>
+    </div>
+    <!-- Text boxes for adding product -->
+    <div id="productFields" class="form-group">
+      <label for="manufacture">Manufacture:</label>
+      <input type="text" class="form-control" id="manufacture" name="manufacture" required>
+      <label for="model">Model:</label>
+      <input type="text" class="form-control" id="model" name="model" required>
+      <label for="price">Price:</label>
+      <input type="number" class="form-control" id="price" name="price" required>
+    </div>
+    <!-- Text boxes for adding customer -->
+    <div id="customerFields" class="form-group" style="display: none;">
+      <label for="title">Title:</label><br>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="title" id="mxRadio" value="Mx" checked>
+        <label class="form-check-label" for="mxRadio">Mx</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="title" id="msRadio" value="Ms">
+        <label class="form-check-label" for="msRadio">Ms</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="title" id="mrRadio" value="Mr">
+        <label class="form-check-label" for="mrRadio">Mr</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="title" id="mrsRadio" value="Mrs">
+        <label class="form-check-label" for="mrsRadio">Mrs</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="title" id="missRadio" value="Miss">
+        <label class="form-check-label" for="missRadio">Miss</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="title" id="drRadio" value="Dr">
+        <label class="form-check-label" for="drRadio">Dr</label>
+      </div>
+      <br><br>
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name" required>
+      <label for="surname">Surname:</label>
+      <input type="text" class="form-control" id="surname" name="surname" required>
+      <label for="phone">Phone:</label>
+      <input type="number" class="form-control" id="phone" name="phone" required>
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email" required>
+      <label for="address1">Address 1:</label>
+      <input type="text" class="form-control" id="address1" name="address1" required>
+      <label for="address2">Address 2:</label>
+      <input type="text" class="form-control" id="address2" name="address2" required>
+      <label for="address3">Address 3:</label>
+      <input type="text" class="form-control" id="address3" name="address3" required>
+      <label for="eircode">Eircode:</label>
+      <input type="text" class="form-control" id="eircode" name="eircode" required>
+    </div>
+    <!-- Text boxes for adding order -->
+    <div id="orderFields" class="form-group" style="display: none;">
+      <label for="customerId">Customer ID:</label>
+      <input type="text" class="form-control" id="customerId" name="customerId" required>
+      <label for="orderManufacture">Manufacturer:</label>
+      <input type="text" class="form-control" id="orderManufacture" name="orderManufacture" required>
+      <label for="orderModel">Model:</label>
+      <input type="text" class="form-control" id="orderModel" name="orderModel" required>
+      <label for="quantity">Quantity:</label>
+      <input type="number" class="form-control" id="quantity" name="quantity" required>
+      <label for="orderPrice">Price:</label>
+      <input type="number" class="form-control" id="orderPrice" name="orderPrice" required>
+    </div>
+    <button type="submit" class="btn btn-primary">Add</button>
+  </form>
+</div>
+
+<!-- Bootstrap JS (optional, for certain components) -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Show relevant text boxes based on selected item type
+  document.querySelectorAll('input[name="itemType"]').forEach(function(radio) {
+    radio.addEventListener('change', function() {
+      const selectedType = document.querySelector('input[name="itemType"]:checked').value;
+      document.getElementById('productFields').style.display = (selectedType === 'product') ? 'block' : 'none';
+      document.getElementById('customerFields').style.display = (selectedType === 'customer') ? 'block' : 'none';
+      document.getElementById('orderFields').style.display = (selectedType === 'order') ? 'block' : 'none';
+    });
+  });
+
+  // Handle form submission
+  document.getElementById('addItemForm').addEventListener('submit', async function(event) {
+    event.preventDefault();
+    const formData = new FormData(this);
+    const newItemData = {};
+    for (const [key, value] of formData.entries()) {
+      newItemData[key] = value;
+    }
+    const itemType = document.querySelector('input[name="itemType"]:checked').value;
+    const endpoint = `/api/${itemType}s`; // Construct the endpoint based on the selected item type
+    try {
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(newItemData)
+      });
+      if (response.ok) {
+        alert('Item added successfully!');
+        window.location.href = '/'; // Redirect to homepage after adding
+      } else {
+        const errorData = await response.json();
+        alert(errorData.message || 'Error adding item');
+      }
+    } catch (error) {
+      console.error('Error adding item:', error);
+      alert('Error adding item');
+    }
+  });
+</script>
+
+</body>
+</html>
